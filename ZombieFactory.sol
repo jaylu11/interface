@@ -11,9 +11,9 @@ contract ZombieFactory is Ownable {
     event Newzombie(uint zombieId, string name, uint dna);
 
     uint public dnaDigits = 16;
-    uint public dnaModulus = 10 ** dnaDigits;
-    uint public cooldownTime = 1 days;
-    string public name;
+    uint dnaModulus = 10 ** dnaDigits;
+    uint cooldownTime = 1 days;
+    string name;
     struct Zombie {
         string name;
         uint dna;
@@ -51,7 +51,7 @@ contract ZombieFactory is Ownable {
         return rand % dnaModulus;
     }
 
-    function createRandomZombie(string memory _name) external {
+    function createRandomZombie(string memory _name) public {
         name = setName(_name);
         require(ownerZombieCount[msg.sender] == 0);
         uint randDna = generateRandomDna();
@@ -71,6 +71,10 @@ contract ZombieFactory is Ownable {
 
     function setName(string memory _name) public returns (string memory) {
         name = _name;
+        return name;
+    }
+
+    function getName() public view returns (string memory) {
         return name;
     }
 }

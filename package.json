@@ -1,8 +1,4 @@
 {
-  "name": "test",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "devDependencies": {
     "@chainlink/contracts": "^0.7.1",
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
