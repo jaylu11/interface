@@ -38,6 +38,10 @@ contract ZombieFactory is Ownable {
         ownerZombieCount[msg.sender] = ownerZombieCount[msg.sender].add(1);
     }
 
+    function getDnaDigits() public view returns (uint) {
+        return dnaDigits;
+    }
+
     function generateRandomDna()
         public
         view
